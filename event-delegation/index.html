@@ -10,6 +10,13 @@
     <header></header>
     <h1>Event delegation, bubbling ans stuff</h1>
     
-    <script type='module' src="./src/init/index.js"></script>
+    <script type='module'>
+        import { createUl, appendLiItems } from './components/list.js'
+        const parentElement = document.querySelector('.body'); 
+        createUl(parentElement, 'delegation-list');
+        // appendLiItems(parentElement, 'delegation-list', ['hello', 'terve', 'hola']);
+
+
+    </script>
 </body>
 </html>

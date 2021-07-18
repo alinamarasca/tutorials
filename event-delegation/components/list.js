@@ -1,7 +1,7 @@
-export const createUL = (parentElement, listId) => {
+export const createUl = (parentElement, listId) => {
     const ul = document.createElement('ul');
     ul.setAttribute('id', listId);
-    return parentElement.appendChild(ul);
+    return ul;
     }
     
 export const appendLiItems = (listId, liItems = []) => {
