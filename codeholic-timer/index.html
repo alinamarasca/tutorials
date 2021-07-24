@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <section class = 'coming-soon'>
+        <div>
+            <div class = 'input-time'>
+                <div class='from-group'><input id= "hours" class="form-control" type="number" value ="00" min=0 name='hours'/> hrs </div>
+                <div class='from-group'><input id= "minutes" class="form-control" type="number" value ="00" min=0 name='minutes'/> min </div>
+                <div class='from-group'><input id= "seconds" class="form-control" type="number" value ="00" min=0 name='seconds'/> sec </div>
+
+            </div>
+            <div class="countdown">
+                <div class = "container-hour">
+                    <h3 class= "hour">00</h3>
+                    <h3>hrs</h3>
+                </div>
+                <div class = "container-minute">
+                    <h3 class= "minute">00</h3>
+                    <h3>min</h3>
+                </div>
+                <div class = "container-second">
+                    <h3 class= "second">00</h3>
+                    <h3>sec</h3>
+                <div class="set">
+                    <button class = "button set-btn">set</button>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class = "buttons">
+            <button class ="button start-btn">start</button>
+            <button class ="button pause-btn">pause</button>
+            <button class ="button stop-btn">stop</button>
+            <button class ="button reset-btn">reset</button>
+
+        </div>
+    </section>
+    <script src='index.js'></script>
+</body>
+</html>
