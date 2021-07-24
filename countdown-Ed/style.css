@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: cornflowerblue;
+}
+.coming-soon{
+    min-height:100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.countdown{
+    width:100vh;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    padding: 1rem;
+    justify-content:space-around;
+    text-align: center;
+}
+
+.day,
+.hour,
+.minute,
+.second,
+.millisecond {
+    font-size: 4rem;
+}
+
+.container-day,
+.container-hour,
+.container-minute,
+.container-second,
+.container-millisecond{
+width: 3rem;
+
+}
+
