@@ -7,74 +7,41 @@ const minutesCount = document.querySelector('.minute');
 const secondesCount = document.querySelector('.second');
 
 const startBtn = document.querySelector('.start-btn');
-const pauseBtn = document.querySelector('.pause-btn');
-const stopBtn = document.querySelector('.stop-btn');
 const resetBtn = document.querySelector('.reset-btn');
+const setBtn = document.querySelector('.set-btn');
+
 
 let timeout;
 let pause = false;
 let totalSeconds = 0;
 let totalSecondsBackup = 0; 
+let timeIsSet = false;
 
-init();
+//listen-handle
 
-function init(){
-    pauseBtn.style.display = 'none';
-    stopBtn.style.display = 'none';
-    resetBtn.style.display = 'none';
-
-    startBtn.addEventListener ('click',()=>{
+const setTime = () => {
         const hours = parseInt(hoursSet.value);
         const minutes = parseInt(minutesSet.value);
         const seconds = parseInt(secondsSet.value);
-    
         totalSecondsBackup = totalSeconds = hours * 60 * 60 + minutes * 60 + seconds;
-        if(totalSeconds <= 0){
-        return;
+        timeIsSet = true;
+        console.log(totalSecondsBackup)
     }
 
-    startTimer();
+setBtn.addEventListener('click', setTime)
 
-    pauseBtn.style.display = 'inline-block';
-    stopBtn.style.display = 'inline-block';
-    resetBtn.style.display = 'inline-block';
-    startBtn.style.display = 'none';
-});
-
-pauseBtn.addEventListener('click', ()=>{
-    pause = !pause;
-    if (pause){
-        
-        pauseBtn.innerText = 'Resume';
-        } else {
-        pauseBtn.innerText = 'Pause';
-        startTimer();
-    }
-    
-})
-
-stopBtn.addEventListener('click', ()=>{
-    stopTimer();
-    totalSeconds = totalSecondsBackup;
-    pause = false;
-    updateInputs();
-
-    pauseBtn.style.display = 'none';
-    stopBtn.style.display = 'none';
-    resetBtn.style.display = 'none';
-    startBtn.style.display = '';
-})
-
-resetBtn.addEventListener('click', () => { //doesn't work
-    totalSeconds = totalSecondsBackup;
-    updateInputs();
+resetBtn.addEventListener('click', () => { 
+    hoursCount.innerText = '00';
+    minutesCount.innerText = '00';
+    secondesCount.innerText = '00';
+    clearInterval(timeout);
     })
-}
 
-function startTimer(){
-        if(pause === true){
+const startTimer = () => {
+
+    if(timeIsSet === !true){
             return;
-        }
+        } else {
         totalSeconds--;
         updateInputs();
         
@@ -83,12 +50,17 @@ function startTimer(){
           }
     timeout = setTimeout( startTimer, 1000)
 }
+}
 
-function stopTimer(){
+
+startBtn.addEventListener('click', startTimer);
+
+
+stopTimer = () => {
     timeout = clearTimeout(timeout);
 }
 
-function updateInputs(){
+const updateInputs= () => {
     const hours = Math.floor(totalSeconds / 60 / 60);
     const minutes = Math.floor(totalSeconds / 60);
     const seconds = totalSeconds % 60;
