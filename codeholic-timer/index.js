@@ -80,11 +80,11 @@ function waitOneSec() {
   });
 }
 
-waitOneSec()
-  .then(() => waitOneSec())
-  .then(() => console.log("2 sec"));
+// waitOneSec()
+//   .then(() => waitOneSec())
+//   .then(() => console.log("2 sec"));
 
-function startTimer() {
+async function startTimer() {
   running = true;
   if (pause === true) {
     return;
@@ -96,11 +96,11 @@ function startTimer() {
     stopTimer();
   }
 
-  waitOneSec().then(() => {
-    if (running) {
-      startTimer();
-    }
-  });
+  await waitOneSec();
+
+  if (running) {
+    startTimer();
+  }
 }
 
 function stopTimer() {
